@@ -4,7 +4,8 @@ class main {
 
 
     public static void main(String[] args) throws IOException {
-        Ejecucion ejecucion = new Ejecucion();
+        Menu menu = new Menu();
+        Ejecucion ejecucion = new Ejecucion(/*menu.getNombreArchivo()*/);
         ejecucion.iniciar();
     }
 }

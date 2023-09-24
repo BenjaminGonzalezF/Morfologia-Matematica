@@ -6,17 +6,49 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Ejecucion {
-    String tipo = "";
-    int ancho = 0, alto = 0;
+import Algoritmos.Erosion.ErosionParalela;
+import Datos.Datos;
 
-    //Lista de arraylist donde cada arraylist contiene los datos de una fila. Esto permite filas de distintos tamaños
+public class Ejecucion {
+
+    String tipo = "";
+    int ancho = 0, alto = 0, maximo = 0;
+
+    // Lista de arraylist donde cada arraylist contiene los datos de una fila. Esto
+    // permite filas de distintos tamaños
+
     List<ArrayList<Integer>> matriz = new ArrayList<>();
 
-    private void generarMatriz() throws IOException {
-        //Scanner sc = new Scanner(System.in);
-        //System.out.println("Ingrese el nombre del archivo");
-        //String archivoPGM = sc.nextLine();
+    Datos datos  = new Datos();
+
+    private void generarEstructura(BufferedReader br) {
+        String linea;
+
+        try {
+            while ((linea = br.readLine()) != null) {
+                String[] valores = linea.split(" ");
+                ArrayList<Integer> fila = new ArrayList<>();
+                for (String valor : valores) {
+                    fila.add(Integer.parseInt(valor));
+                }
+                matriz.add(fila);
+            }
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        datos.setDatos(matriz);
+        datos.setAlto(alto);
+        datos.setAncho(ancho);
+        datos.setMaximo(maximo);
+    }
+
+    private void leerArchivo() throws IOException {
+        // Scanner sc = new Scanner(System.in);
+        // System.out.println("Ingrese el nombre del archivo");
+        // String archivoPGM = sc.nextLine();
         String archivoPGM = "test.pgm";
         String linea;
         // Abrir archivo de tipo pgm
@@ -25,56 +57,66 @@ public class Ejecucion {
 
         int lineasProcesadas = 0;
 
-        //Inicializar las variables considerando posibles comentarios entre lineas.
-        while (lineasProcesadas<2) {
+        // Inicializar las variables considerando posibles comentarios entre lineas.
+        while (lineasProcesadas < 3) {
             linea = br.readLine();
-            if(!linea.trim().startsWith("#")){
+            if (!linea.trim().startsWith("#")) {
                 String[] tokens = linea.split(" ");
-                    for (int i = 0; i < tokens.length; i++) {
-                            if (lineasProcesadas == 0) {
-                                tipo = tokens[i];
-                            }
-                            if(lineasProcesadas == 1){
-                                alto = Integer.parseInt(tokens[i]);
-                                ancho = Integer.parseInt(tokens[i]);
-                            }
-                        }
-                    lineasProcesadas +=1;
-            }            
+                for (int i = 0; i < tokens.length; i++) {
+                    if (lineasProcesadas == 0) {
+                        tipo = tokens[i];
+                    }
+                    if (lineasProcesadas == 1) {
+                        alto = Integer.parseInt(tokens[i]);
+                        ancho = Integer.parseInt(tokens[i]);
+                    }
+                    if(lineasProcesadas == 2){
+                        maximo = Integer.parseInt(tokens[i]);
+                    }
+                }
+                lineasProcesadas += 1;
+            }
         }
 
-        while ((linea = br.readLine()) != null) {
-            String[] valores = linea.split(" ");
-            ArrayList<Integer> fila = new ArrayList<>();
-            for (String valor : valores) {
-                fila.add(Integer.parseInt(valor));
-            }
-            matriz.add(fila);
-        }
+        generarEstructura(br);
 
     }
-    
-    private void mostrarMatriz(){
+
+    private void mostrarMatriz() {
         for (ArrayList<Integer> fila : matriz) {
             for (Integer pixel : fila) {
                 System.out.print(pixel + " ");
             }
-            System.out.println(); 
+            System.out.println();
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+    private void mostrarLargoFilas() {
+        for (ArrayList<Integer> fila : matriz) {
+            System.out.println(fila.size());
         }
     }
 
-        private void mostrarLargoFilas(){
-        for (ArrayList<Integer> fila : matriz) {
-            System.out.println(fila.size()); 
-        }
+    public void testErosionParelela1(){
+        ErosionParalela eros = new ErosionParalela(1,datos );
+
     }
+
+    
 
     public void iniciar() throws IOException {
-        generarMatriz();
-        //mostrarMatriz();
-        mostrarLargoFilas();
 
-    
-    
+        leerArchivo();
+        //mostrarMatriz();
+        testErosionParelela1();
+
+
+
+
     }
 }
