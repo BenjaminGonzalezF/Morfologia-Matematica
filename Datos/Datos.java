@@ -12,17 +12,39 @@ public class Datos {
     // Lista de arraylist donde cada arraylist contiene los datos de una fila. Esto
     // permite filas de distintos tamaños
     List<ArrayList<Integer>> datos = new ArrayList<>();
+    public Datos(){}
+    public Datos(int alto, int ancho, int maximo, List<ArrayList<Integer>> datos) {
+        this.alto = alto;
+        this.ancho = ancho;
+        this.maximo = maximo;
+        this.datos = datos;
+    }
+
+    //Devuelve la misma instancia para todas las llamadas
     public Datos getInstance() {
         if (instance == null) {
             instance = new Datos();
         }
         return instance;
     }
-
+    //Devuelve todos los datos
     public List<ArrayList<Integer>> getMatriz() {
         return datos;
     }
 
+    //Remplaza los valores de la lista con indice i con los de la nueva Lista
+    public void reemplazarListaN(int i,ArrayList<Integer> nuevaLsita){
+        this.datos.set(i, nuevaLsita);
+        
+    }
+    //Devuelve una sublista 
+    public List<ArrayList<Integer>> obtenerSubListas(int inicio, int finalVal) {
+        if (inicio < 0 || finalVal < inicio || finalVal > alto) {
+            throw new IllegalArgumentException("Los índices no son válidos");
+        }
+        
+        return datos.subList(inicio, finalVal);
+    }
     public void setDatos(List<ArrayList<Integer>> datos) {
         this.datos = datos;
     }
@@ -31,10 +53,6 @@ public class Datos {
         return datos.get(i);
     }
 
-    public void reemplazarListaN(int i,ArrayList<Integer> nuevaLsita){
-        this.datos.set(i, nuevaLsita);
-        
-    }
     
     private void mostrarDatos() {
         for (ArrayList<Integer> fila : datos) {
@@ -58,15 +76,6 @@ public class Datos {
     }
 
 
-    public Datos() {
-    }
-
-    public Datos(int alto, int ancho, int maximo, List<ArrayList<Integer>> datos) {
-        this.alto = alto;
-        this.ancho = ancho;
-        this.maximo = maximo;
-        this.datos = datos;
-    }
 
     public int getAlto() {
         return this.alto;
