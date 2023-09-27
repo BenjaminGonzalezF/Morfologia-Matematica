@@ -23,26 +23,34 @@ public class Ejecucion {
 
     private void generarEstructura(BufferedReader br) {
         String linea;
+        ArrayList<Integer> fila = new ArrayList<>();
+
 
         try {
             while ((linea = br.readLine()) != null) {
                 String[] valores = linea.split(" ");
-                ArrayList<Integer> fila = new ArrayList<>();
                 for (String valor : valores) {
                     fila.add(Integer.parseInt(valor));
                 }
-                matriz.add(fila);
+                if(fila.size() == ancho){
+                    matriz.add(new ArrayList<>(fila));
+                    fila.clear();
+                    //System.out.println(matriz.get(0));
+                 }
             }
-        } catch (NumberFormatException e) {
+        }catch (NumberFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+       // System.out.println(matriz.get(0));
+
         datos.setDatos(matriz);
         datos.setAlto(alto);
         datos.setAncho(ancho);
         datos.setMaximo(maximo);
+        datos.setTipo(tipo);
     }
 
     private void leerArchivo() throws IOException {
@@ -58,7 +66,7 @@ public class Ejecucion {
         int lineasProcesadas = 0;
 
         // Inicializar las variables considerando posibles comentarios entre lineas.
-        while (lineasProcesadas < 3) {
+        while (lineasProcesadas <3) {
             linea = br.readLine();
             if (!linea.trim().startsWith("#")) {
                 String[] tokens = linea.split(" ");
@@ -67,8 +75,8 @@ public class Ejecucion {
                         tipo = tokens[i];
                     }
                     if (lineasProcesadas == 1) {
+                        if(alto == 0) ancho = Integer.parseInt(tokens[i]);
                         alto = Integer.parseInt(tokens[i]);
-                        ancho = Integer.parseInt(tokens[i]);
                     }
                     if(lineasProcesadas == 2){
                         maximo = Integer.parseInt(tokens[i]);
@@ -107,15 +115,24 @@ public class Ejecucion {
 
     }
 
+    public void mostrarInicio(){
+
+        System.out.println("Reemplazo");
+        System.out.println(datos.getDatos().get(0));
+    }
+
     
 
     public void iniciar() throws IOException {
 
         leerArchivo();
+
         //mostrarMatriz();
+        //mostrarLargoFilas();
+        mostrarInicio();
         testErosionParelela1();
 
-
+        mostrarInicio();
 
 
     }

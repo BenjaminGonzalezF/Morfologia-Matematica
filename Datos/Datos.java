@@ -6,6 +6,7 @@ import java.util.Objects;
 //Clase singleton encargada de gestionar los datos.
 public class Datos {
     private static Datos instance = null;
+    private String tipo;
     private int alto;
     private int ancho;
     private int maximo;
@@ -124,6 +125,14 @@ public class Datos {
     public Datos datos(List<ArrayList<Integer>> datos) {
         setDatos(datos);
         return this;
+    }
+
+    public String getTipo() {
+        return this.tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
