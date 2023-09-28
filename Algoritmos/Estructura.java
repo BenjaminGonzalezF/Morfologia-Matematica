@@ -1,6 +1,5 @@
 package Algoritmos;
-import java.util.ArrayList;
-import java.util.List;
+
 
 import Datos.*;
 import ElementosEstructurantes.Tipos.*;
@@ -18,6 +17,7 @@ public class Estructura {
 
     public void generarPGM(String algoritmo){
          CrearPGM crearArchivo = new CrearPGM(algoritmo, this.datos);
+         crearArchivo.crear();
     }
 
 

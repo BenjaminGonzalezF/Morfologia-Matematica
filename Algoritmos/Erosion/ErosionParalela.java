@@ -1,8 +1,5 @@
 package Algoritmos.Erosion;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import Algoritmos.Estructura;
 import Algoritmos.GestionHilos;
 import Algoritmos.Hilo;
@@ -50,7 +47,7 @@ public class ErosionParalela extends Estructura{
         
         System.out.println("Los hilos han terminado");
 
-        this.generarPGM("ErosionParalela");
+        this.generarPGM("ErosionParalelaElemento" + nElemento);
     }
 
 

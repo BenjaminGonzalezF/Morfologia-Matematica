@@ -4,7 +4,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class CrearPGM {
     private String nombre = "";
@@ -13,14 +12,13 @@ public class CrearPGM {
     public CrearPGM( String nombre, Datos datos){
         this.datos = datos;
         this.nombre= nombre;
-        crear();
 
     }
 
 
-    public void crear(){
+    public void crear(){        
         // Crear un nombre de archivo único para cada lista
-        String nombreArchivo = nombre + System.currentTimeMillis() + ".pgm";
+        String nombreArchivo = nombre + ".pgm";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nombreArchivo))) {
             // Escribir la cabecera PGM en el archivo
@@ -46,5 +44,6 @@ public class CrearPGM {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 }

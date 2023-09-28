@@ -3,7 +3,6 @@ package Algoritmos;
 import java.util.ArrayList;
 import java.util.List;
 
-import Datos.Datos;
 import ElementosEstructurantes.Tipos.ElementoEstructuranteBase;
 
 public class Hilo implements Runnable{
@@ -24,7 +23,6 @@ public class Hilo implements Runnable{
     
     @Override
     public void run() {
-        // TODO Auto-generated method stub
         operar();
     }
 
@@ -32,7 +30,7 @@ public class Hilo implements Runnable{
     public void operar(){
         ArrayList<Integer> nuevaLista = new ArrayList<Integer>();
 
-
+        
         for (int i = inicio; i < finalVal; i++) {
             nuevaLista = elementoEstructurante.patron(i);
             nuevaSubListas.add(nuevaLista);   

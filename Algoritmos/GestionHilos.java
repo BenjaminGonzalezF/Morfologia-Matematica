@@ -15,7 +15,9 @@ public class GestionHilos {
 
     public synchronized void unirSubListas(int indexInicial, int indexFinal, List<ArrayList<Integer>> nuevaSubListas){
         for (int i = indexInicial; i < indexFinal ; i++) {
-            datos.reemplazarListaN(i, nuevaSubListas.get(0));
+            datos.setNuevosDatos(datos.getDatos());
+
+            datos.reemplazarNuevaListaN(i, nuevaSubListas.get(0));
             nuevaSubListas.remove(0);
         }
 

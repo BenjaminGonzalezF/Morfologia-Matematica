@@ -1,7 +1,6 @@
 package Datos;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 //Clase singleton encargada de gestionar los datos.
 public class Datos {
@@ -13,6 +12,8 @@ public class Datos {
     // Lista de arraylist donde cada arraylist contiene los datos de una fila. Esto
     // permite filas de distintos tamaños
     List<ArrayList<Integer>> datos = new ArrayList<>();
+    List<ArrayList<Integer>> nuevosDatos = new ArrayList<>();
+
     public Datos(){}
     public Datos(int alto, int ancho, int maximo, List<ArrayList<Integer>> datos) {
         this.alto = alto;
@@ -34,8 +35,8 @@ public class Datos {
     }
 
     //Remplaza los valores de la lista con indice i con los de la nueva Lista
-    public void reemplazarListaN(int i,ArrayList<Integer> nuevaLsita){
-        this.datos.set(i, nuevaLsita);
+    public void reemplazarNuevaListaN(int i,ArrayList<Integer> nuevaLsita){
+        this.nuevosDatos.set(i, nuevaLsita);
         
     }
     //Devuelve una sublista 
@@ -77,6 +78,25 @@ public class Datos {
     }
 
 
+    public List<ArrayList<Integer>> getNuevosDatos() {
+        return this.nuevosDatos;
+    }
+
+    public void setNuevosDatos(List<ArrayList<Integer>> nuevosDatos) {
+        this.nuevosDatos = nuevosDatos;
+    }
+
+    public  void mostrar60Elementos(int indice, String cualDatos){
+        System.out.println();
+        for (int i = 0; i < 60; i++) {
+            if(cualDatos == "DatosOriginales"){
+                System.out.print(datos.get(indice).get(i) + " ");
+            }
+            if(cualDatos == "NuevosDatos"){
+                System.out.print(nuevosDatos.get(indice).get(i) + " ");
+            }
+        }
+    }
 
     public int getAlto() {
         return this.alto;
@@ -133,22 +153,6 @@ public class Datos {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == this)
-            return true;
-        if (!(o instanceof Datos)) {
-            return false;
-        }
-        Datos datos = (Datos) o;
-        return alto == datos.alto && ancho == datos.ancho && maximo == datos.maximo && Objects.equals(datos, datos.datos);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(alto, ancho, maximo, datos);
     }
 
     @Override

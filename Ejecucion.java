@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import Algoritmos.Erosion.ErosionParalela;
+import Algoritmos.Erosion.ErosionSecuencial;
 import Datos.Datos;
 
 public class Ejecucion {
@@ -43,8 +44,6 @@ public class Ejecucion {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-       // System.out.println(matriz.get(0));
 
         datos.setDatos(matriz);
         datos.setAlto(alto);
@@ -111,29 +110,27 @@ public class Ejecucion {
     }
 
     public void testErosionParelela1(){
+
+        System.out.println("\nDatos Originales");
+        datos.mostrar60Elementos(0, "DatosOriginales");
+        datos.mostrar60Elementos(1, "DatosOriginales");
+        System.out.println();
+
+
         ErosionParalela eros = new ErosionParalela(1,datos );
-
+        ErosionSecuencial erosionSecuencial = new ErosionSecuencial(1,datos);
+        
+        System.out.println("\nDatos resultantes");
+        datos.mostrar60Elementos(0, "NuevosDatos");
+        datos.mostrar60Elementos(1, "NuevosDatos");
     }
-
-    public void mostrarInicio(){
-
-        System.out.println("Reemplazo");
-        System.out.println(datos.getDatos().get(0));
-    }
-
     
-
     public void iniciar() throws IOException {
 
         leerArchivo();
-
         //mostrarMatriz();
         //mostrarLargoFilas();
-        mostrarInicio();
         testErosionParelela1();
-
-        mostrarInicio();
-
 
     }
 }

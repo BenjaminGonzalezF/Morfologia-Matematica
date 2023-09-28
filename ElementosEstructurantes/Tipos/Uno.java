@@ -34,14 +34,17 @@ public class Uno extends ElementoEstructuranteBase {
             int valorIzquierda = primera.get(i - 1);
             int valorAbajo = segunda.get(i);
             int nuevoValor = 0;
-
+/* 
 /*             System.out.println("Valor a reemplazar :" +valorAReemplazar +
                                 "Valor izquierda: " + valorIzquierda + 
                                 " Valor abajo: " + valorAbajo);
             System.out.println(valorAReemplazar + "Se remplaza por " + mayor(valorAReemplazar, valorIzquierda, valorAbajo)); */
-
-            if(algoritmo == 1 ); nuevoValor= menor(valorAReemplazar, valorIzquierda, valorAbajo);
-            if(algoritmo == 2 ); nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorAbajo);
+            if(algoritmo == 1 ){
+                nuevoValor= menor(valorAReemplazar, valorIzquierda, valorAbajo);
+            }
+            if(algoritmo == 2 ){
+                nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorAbajo);
+            }
 
             nuevaLista.add(nuevoValor);
         }
