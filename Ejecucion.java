@@ -126,10 +126,7 @@ public class Ejecucion {
     }
     
     public void iniciar() throws IOException {
-
         leerArchivo();
-        //mostrarMatriz();
-        //mostrarLargoFilas();
         testErosionParelela1();
 
     }
