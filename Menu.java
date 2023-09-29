@@ -53,8 +53,9 @@ public class Menu {
             } catch (Exception e) {
                 System.out.println("Error: Compruebe el nombre del archivo");
             }
-break;
+            break;
         }
+        algoritmo = 0;
         seleccionAlgoritmo();
     }
 
@@ -78,6 +79,7 @@ break;
                 System.out.println("Error: Ingrese un valor numerico");
             }
             if(nElementoEstrucurante == 6){
+                this.algoritmo = 0;
                 seleccionAlgoritmo();
             }
             if(nElementoEstrucurante == 7){
