@@ -19,6 +19,7 @@ public abstract class ElementoEstructuranteBase {
     //Devuelve una lista de integer a la cual ya se le ha aplicado el patron
     public abstract ArrayList<Integer>  patron(int filaInicio);
 
+
     public int menor(int a, int b, int c) {
         int menor = a;
         if (b < menor) {
@@ -41,6 +42,54 @@ public abstract class ElementoEstructuranteBase {
         }
         return mayor;
     }
+
+   // Método para encontrar el valor mínimo entre cinco valores
+    public int menor(int valor1, int valor2, int valor3, int valor4, int valor5) {
+        int min = valor1;
+        
+        if (valor2 < min) {
+            min = valor2;
+        }
+        
+        if (valor3 < min) {
+            min = valor3;
+        }
+        
+        if (valor4 < min) {
+            min = valor4;
+        }
+        
+        if (valor5 < min) {
+            min = valor5;
+        }
+        
+        return min;
+    }
+
+    // Método para encontrar el valor máximo entre cinco valores
+    public int mayor(int valor1, int valor2, int valor3, int valor4, int valor5) {
+        int max = valor1;
+        
+        if (valor2 > max) {
+            max = valor2;
+        }
+        
+        if (valor3 > max) {
+            max = valor3;
+        }
+        
+        if (valor4 > max) {
+            max = valor4;
+        }
+        
+        if (valor5 > max) {
+            max = valor5;
+        }
+        
+        return max;
+    }
+
+
 
 
     public ArrayList<Integer> listaMayor(ArrayList<Integer> uno ,ArrayList<Integer> dos ){
