@@ -10,10 +10,9 @@ public class ErosionSecuencial extends Estructura{
     ElementoEstructuranteBase elementoEstructurante;
     public ErosionSecuencial(int nElemento, Datos datos) {
         super(nElemento, datos);
-        iniciar();
     }
 
-    private void iniciar(){
+    public void iniciar(){
         elementoEstructurante = this.aplicarElementoEstructurante(1, this.nElemento);
         datos.setNuevosDatos(datos.getDatos());
 

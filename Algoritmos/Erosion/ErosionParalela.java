@@ -11,10 +11,9 @@ public class ErosionParalela extends Estructura{
     ElementoEstructuranteBase elementoEstructurante;
     public ErosionParalela(int nElemento, Datos datos) {
         super(nElemento, datos);
-        iniciar();
     }
 
-    private void iniciar(){
+    public void iniciar(){
         elementoEstructurante = this.aplicarElementoEstructurante(1, this.nElemento);
 
         int nHilos  = Runtime.getRuntime().availableProcessors();

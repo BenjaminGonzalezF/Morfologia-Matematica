@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import Algoritmos.Erosion.DilatacionParalela;
+import Algoritmos.Erosion.DilatacionSecuencial;
 import Algoritmos.Erosion.ErosionParalela;
 import Algoritmos.Erosion.ErosionSecuencial;
 import Datos.Datos;
@@ -14,13 +16,24 @@ public class Ejecucion {
 
     String tipo = "";
     int ancho = 0, alto = 0, maximo = 0;
+    int algoritmo = 0 ;
+    int nElementoEstrucurante = 0;
+    int procesamiento = 0;
+    String nombreArchivo = "";
 
     // Lista de arraylist donde cada arraylist contiene los datos de una fila. Esto
     // permite filas de distintos tamaños
-
     List<ArrayList<Integer>> matriz = new ArrayList<>();
-
     Datos datos  = new Datos();
+
+
+    public Ejecucion(String nombreArchivo, int algoritmo, int nElementoEstrucurante, int procesamiento) {
+        this.nombreArchivo = nombreArchivo;
+        this.algoritmo = algoritmo;
+        this.nElementoEstrucurante = nElementoEstrucurante;
+        this.procesamiento = procesamiento;
+    }
+
 
     private void generarEstructura(BufferedReader br) {
         String linea;
@@ -53,15 +66,11 @@ public class Ejecucion {
     }
 
     private void leerArchivo() throws IOException {
-        // Scanner sc = new Scanner(System.in);
-        // System.out.println("Ingrese el nombre del archivo");
-        // String archivoPGM = sc.nextLine();
-        String archivoPGM = "test.pgm";
+
         String linea;
         // Abrir archivo de tipo pgm
-        BufferedReader br = new BufferedReader(new FileReader(archivoPGM));
+        BufferedReader br = new BufferedReader(new FileReader(nombreArchivo));
         // Leer la información del encabezado PGM
-
         int lineasProcesadas = 0;
 
         // Inicializar las variables considerando posibles comentarios entre lineas.
@@ -110,7 +119,6 @@ public class Ejecucion {
     }
 
     public void testErosionParelela1(){
-
         System.out.println("\nDatos Originales");
         datos.mostrar60Elementos(0, "DatosOriginales");
         datos.mostrar60Elementos(1, "DatosOriginales");
@@ -124,10 +132,44 @@ public class Ejecucion {
         datos.mostrar60Elementos(0, "NuevosDatos");
         datos.mostrar60Elementos(1, "NuevosDatos");
     }
+
+
+    private void iniciarAlgoritmos(){
+
+        if (algoritmo == 1) {
+            if(procesamiento == 1){
+                System.out.println("Iniciando Erosion Secuencial");
+                ErosionSecuencial erosionSecuencial = new ErosionSecuencial(nElementoEstrucurante,datos);
+                erosionSecuencial.iniciar();
+            }
+            if(procesamiento == 2){
+                System.out.println("Iniciando Erosion Paralela");
+                ErosionParalela erosionParalela = new ErosionParalela(nElementoEstrucurante,datos);
+                erosionParalela.iniciar();
+            }
+        }
+
+        if (algoritmo == 2) {
+            if(procesamiento == 1){
+                System.out.println("Iniciando Dilatacion Secuencial");
+                //DilatacionSecuencial dilatacionSecuencial = new DilatacionSecuencial(nElementoEstrucurante,datos);
+                //dilatacionSecuencial.iniciar();
+            }
+            if(procesamiento == 2){
+                System.out.println("Iniciando Dilatacion Paralela");
+                //DilatacionParalela dilatacionParalela = new DilatacionParalela(nElementoEstrucurante,datos);
+                //dilatacionParalela.iniciar();
+            }
+        }
+            
+
+
+    }
+
+
     
     public void iniciar() throws IOException {
         leerArchivo();
-        testErosionParelela1();
-
+        iniciarAlgoritmos();
     }
 }

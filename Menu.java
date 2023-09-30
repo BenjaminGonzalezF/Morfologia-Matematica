@@ -5,6 +5,7 @@ public class Menu {
 
     int algoritmo = 0 ;
     int nElementoEstrucurante = 0;
+    int procesamiento = 0;
     String nombreArchivo = "";
 
     
@@ -32,8 +33,7 @@ public class Menu {
         if(algoritmo == 4){
             terminarEjecucion();
         }
-
-        seleccionElementoEstructurante();
+        seleccionTipoProcesamiento();
     }
 
     private void solicitarNombreDeArchivo() {
@@ -59,6 +59,36 @@ public class Menu {
         seleccionAlgoritmo();
     }
 
+    
+    private void seleccionTipoProcesamiento(){
+        while (true){
+            System.out.println("Ingrese número del tipo de procesamiento\n");
+            System.out.println("1. Secuencial");
+            System.out.println("2. Paralelo");
+            System.out.println("3. Volver atras ");
+            System.out.println("4. Salir ");
+            try {
+                procesamiento = Integer.parseInt(System.console().readLine());
+                if(procesamiento<1 || procesamiento > 4){
+                    System.out.println("Error: Ingrese un numero valido");
+                    continue;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Ingrese un valor numerico");
+                continue;
+            }
+
+            if(procesamiento == 3){
+                seleccionAlgoritmo();
+            }
+            if(procesamiento == 4){
+                terminarEjecucion();
+            }
+            break;
+        }
+        seleccionElementoEstructurante();
+    }
+
     //Crea una funcion que sea un menu de selección de un elemento estructurante, el usuario debe ingresar por consola el número del elemento estriucturante que desa las opciones son del 1 al 5, 6 es para volver atras y 7 para salir, todo validado */
     private void seleccionElementoEstructurante(){
         while (true){
@@ -74,27 +104,51 @@ public class Menu {
                 nElementoEstrucurante = Integer.parseInt(System.console().readLine());
                 if(nElementoEstrucurante<=0 || nElementoEstrucurante > 7){
                     System.out.println("Error: Ingrese un numero valido");
+                    continue;
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Error: Ingrese un valor numerico");
+                continue;
             }
             if(nElementoEstrucurante == 6){
                 this.algoritmo = 0;
-                seleccionAlgoritmo();
+                seleccionTipoProcesamiento();
             }
             if(nElementoEstrucurante == 7){
                 terminarEjecucion();
             }
-
+            break;
         }
-
-
     }
+
+
     private void terminarEjecucion(){
         System.out.println("Adios");
         System.exit(0);
     }
     public Menu(){
+    }
+
+    public void iniciar(){
         solicitarNombreDeArchivo();
     }
+
+    public int getAlgoritmo() {
+        return this.algoritmo;
+    }
+
+    public int getNElementoEstrucurante() {
+        return this.nElementoEstrucurante;
+    }
+
+    public String getNombreArchivo() {
+        return this.nombreArchivo;
+    }
+
+    public int getProcesamiento() {
+        return this.procesamiento;
+    }
+
+
+
 }
