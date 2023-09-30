@@ -1,8 +1,8 @@
-package elementos_estructurantes;
+package ElementosEstructurantes.Tipos;
 
 import java.util.ArrayList;
 
-import datos.Datos;
+import Datos.Datos;
 
 public class Dos extends ElementoEstructuranteBase {
 	// Erosion: 1 Dilacion:2

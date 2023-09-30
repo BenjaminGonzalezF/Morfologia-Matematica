@@ -1,12 +1,10 @@
-package ElementosEstructurantes.Tipos;
-
 import java.util.ArrayList;
 
 import Datos.Datos;
 
-public class Tres extends ElementoEstructuranteBase {
+public class Cuatro extends ElementoEstructuranteBase {
 	// Erosion: 1 Dilacion:2
-	public Tres(int algoritmo, Datos datos) {
+	public Cuatro(int algoritmo, Datos datos) {
 		super(algoritmo, datos);
 	}
 
@@ -21,16 +19,15 @@ public class Tres extends ElementoEstructuranteBase {
 
 		for (int i = 1; i < maximoLargo - 1; i++) {
 			int valorAReemplazar = primera.get(i);
-			int valorIzquierda = primera.get(i - 1);
-			int valorDerecha = primera.get(i + 1);
+			int valorAbajo = segunda.get(i);
 			int nuevoValor = 0;
 
 			if (algoritmo == 1)
 				;
-			nuevoValor = menor(valorAReemplazar, valorIzquierda, valorDerecha);
+			nuevoValor = menor(valorAReemplazar, valorAbajo, 255);
 			if (algoritmo == 2)
 				;
-			nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorDerecha);
+			nuevoValor = mayor(valorAReemplazar, valorAbajo, 0);
 
 			nuevaLista.add(nuevoValor);
 		}
