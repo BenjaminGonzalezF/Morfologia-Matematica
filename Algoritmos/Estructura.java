@@ -1,5 +1,7 @@
 package Algoritmos;
-import Datos.Datos;
+
+
+import Datos.*;
 import ElementosEstructurantes.Tipos.*;
 
 //Clase padre de las implementaciones de los algoritmos
@@ -10,6 +12,12 @@ public class Estructura {
     public Estructura (int nElemento, Datos datos){
         this.nElemento = nElemento;
         this.datos = datos;
+    }
+
+
+    public void generarPGM(String algoritmo){
+         CrearPGM crearArchivo = new CrearPGM(algoritmo, this.datos);
+         crearArchivo.crear();
     }
 
 
