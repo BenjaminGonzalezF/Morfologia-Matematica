@@ -1,4 +1,8 @@
-package algoritmos;
+package Algoritmos;
+
+
+import Datos.*;
+import ElementosEstructurantes.Tipos.*;
 
 import datos.Datos;
 import elementos_estructurantes.ElementoEstructuranteBase;
@@ -17,29 +21,44 @@ public class Estructura {
 
 	public ElementoEstructuranteBase aplicarElementoEstructurante(int algoritmo, int nElemento) {
 
-		switch (nElemento) {
-		case 1:
-			Uno uno = new Uno(algoritmo, datos);
-			return uno;
-		case 2:
-			Dos dos = new Dos(algoritmo, datos);
-			return dos;
-		case 3:
-			Tres tres = new Tres(algoritmo, datos);
-			return tres;
-		// Realiza acciones relacionadas con uno
-		/*
-		 * case 2: //Dos dos = new Dos(algoritmo); // Realiza acciones relacionadas con
-		 * dos //return dos; case 3: // Tres tres = new Tres(algoritmo,datos); //
-		 * Realiza acciones relacionadas con tres //return tres; break; case 4: //
-		 * Cuatro cuatro = new Cuatro(algoritmo,datos); // Realiza acciones relacionadas
-		 * con cuatro //return cuatro; break; case 5: // Cinco cinco = new
-		 * Cinco(algoritmo,datos); // Realiza acciones relacionadas con cinco //return
-		 * cinco; break;
-		 */
-		default:
-			System.out.println("Opción no válida. Introduce un valor del 1 al 5.");
-		}
-		return null;
-	}
+    public void generarPGM(String algoritmo){
+         CrearPGM crearArchivo = new CrearPGM(algoritmo, this.datos);
+         crearArchivo.crear();
+    }
+
+
+    public ElementoEstructuranteBase aplicarElementoEstructurante(int algoritmo, int nElemento){
+    
+        switch (nElemento) {
+            case 1:
+                Uno uno = new Uno(algoritmo,datos);
+                return uno;
+                // Realiza acciones relacionadas con uno
+/*
+            case 2:
+                //Dos dos = new Dos(algoritmo);
+                // Realiza acciones relacionadas con dos
+                //return dos;
+            case 3:
+                // Tres tres = new Tres(algoritmo,datos);
+                // Realiza acciones relacionadas con tres
+                //return tres;
+                break;
+            case 4:
+                // Cuatro cuatro = new Cuatro(algoritmo,datos);
+                // Realiza acciones relacionadas con cuatro
+                //return cuatro;
+                break;
+            case 5:
+                // Cinco cinco = new Cinco(algoritmo,datos);
+                // Realiza acciones relacionadas con cinco
+                //return cinco;
+                break;
+                */
+            default:
+                System.out.println("Opción no válida. Introduce un valor del 1 al 5.");
+        }
+        return null;
+    }
+    
 }

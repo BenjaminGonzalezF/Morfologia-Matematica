@@ -56,4 +56,14 @@ public abstract class ElementoEstructuranteBase {
         }
         return dos;
     }
+
+
+    public int getAlgoritmo() {
+        return this.algoritmo;
+    }
+
+    public Datos getDatos() {
+        return this.datos;
+    }
+
 }

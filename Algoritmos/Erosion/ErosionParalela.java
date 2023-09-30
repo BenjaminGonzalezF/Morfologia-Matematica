@@ -1,8 +1,8 @@
 package Algoritmos.Erosion;
 
-import java.util.ArrayList;
-
 import Algoritmos.Estructura;
+import Algoritmos.GestionHilos;
+import Algoritmos.Hilo;
 import Datos.Datos;
 import ElementosEstructurantes.Tipos.ElementoEstructuranteBase;
 
@@ -11,37 +11,42 @@ public class ErosionParalela extends Estructura{
     ElementoEstructuranteBase elementoEstructurante;
     public ErosionParalela(int nElemento, Datos datos) {
         super(nElemento, datos);
-        iniciar();
     }
 
-    private void iniciar(){
+    public void iniciar(){
         elementoEstructurante = this.aplicarElementoEstructurante(1, this.nElemento);
 
-        int nIteraciones = (datos.getAlto() -1)/2 ;
-        ArrayList<Integer> nuevaLista = new ArrayList<Integer>();
+        int nHilos  = Runtime.getRuntime().availableProcessors();
+        GestionHilos gestionHilos = new GestionHilos(datos);
+        Thread[] hilos = new Thread[nHilos];
 
-        // for (int i = 1; i < nIteraciones; i++) {
-/*              nuevaLista = elementoEstructurante.patron(i*2);
-             datos.reemplazarListaN(i*2, nuevaLista); */
-        // }
-
-
-        int inicioDeListas = 0;
-        System.out.println("Listas : ");
-        System.out.println(datos.getLista(inicioDeListas));
-        System.out.println(datos.getLista(inicioDeListas+1));
         
 
+        int indexInicial,indexFinal,sumador;
 
-        nuevaLista = elementoEstructurante.patron(inicioDeListas);
-        datos.reemplazarListaN(inicioDeListas, nuevaLista);
+        sumador = datos.getAlto()/nHilos;
+        indexInicial = 0;
+        indexFinal = sumador;
 
-        System.out.println("Lista Nueva: ");
-        System.out.println(datos.getLista(inicioDeListas));
+        //Inicia todos los hilos
+        for (int i = 0; i < nHilos; i++) {
+            hilos[i] = new Thread(new Hilo(i+1,elementoEstructurante, indexInicial, indexFinal,gestionHilos));
+            hilos[i].run();
+            indexInicial = indexFinal + 1 ;
+            indexFinal = indexFinal + sumador;
+        }
+        //Esperar a todos los hilos
+        try {
+            for (int i = 0; i < nHilos; i++) {
+                hilos[i].join();
+            }
+        } catch (InterruptedException e) {
+            System.err.println("Error al esperar a los hilos: " + e.getMessage());
+        }
         
-        
-    
-        
+        System.out.println("Los hilos han terminado");
+
+        this.generarPGM("ErosionParalelaElemento" + nElemento);
     }
 
 
