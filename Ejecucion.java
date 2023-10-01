@@ -158,6 +158,10 @@ public class Ejecucion {
     
     public void iniciar() throws IOException {
         leerArchivo();
+        long startTime = System.nanoTime();
         iniciarAlgoritmos();
+        long endTime = System.nanoTime();
+        System.out.println("Tiempo de ejecución: " + (endTime - startTime) / 1000000 + " ms");
+
     }
 }

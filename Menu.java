@@ -126,11 +126,22 @@ public class Menu {
         System.out.println("Adios");
         System.exit(0);
     }
+
+    public void resetearAtributos(){
+         algoritmo = 0 ;
+         nElementoEstrucurante = 0;
+         procesamiento = 0;
+    }
     public Menu(){
     }
 
     public void iniciar(){
-        solicitarNombreDeArchivo();
+        if(nombreArchivo == ""){
+            solicitarNombreDeArchivo();
+        }
+        else{
+            seleccionAlgoritmo();
+        }
     }
 
     public int getAlgoritmo() {
