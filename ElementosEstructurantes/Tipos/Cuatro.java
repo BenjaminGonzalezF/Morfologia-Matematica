@@ -23,13 +23,12 @@ public class Cuatro extends ElementoEstructuranteBase {
             int valorAbajo = segunda.get(i);
             int nuevoValor = 0;
 
-            if (algoritmo == 1)
-                ;
-            nuevoValor = menor(valorAReemplazar, valorAbajo, 255);
-            if (algoritmo == 2)
-                ;
-            nuevoValor = mayor(valorAReemplazar, valorAbajo, 0);
-
+            if (algoritmo == 1){
+                nuevoValor = menor(valorAReemplazar, valorAbajo, 255);
+            }
+            if (algoritmo == 2){
+                nuevoValor = mayor(valorAReemplazar, valorAbajo, 0);
+            }
             nuevaLista.add(nuevoValor);
         }
         return nuevaLista;

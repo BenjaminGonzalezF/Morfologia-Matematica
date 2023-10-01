@@ -31,12 +31,8 @@ public class Dos extends ElementoEstructuranteBase {
 			 * mayor(valorAReemplazar, valorIzquierda, valorAbajo));
 			 */
 
-			if (algoritmo == 1)
-				;
-			nuevoValor = menor(valorAReemplazar, valorIzquierda, valorArriba);
-			if (algoritmo == 2)
-				;
-			nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorArriba);
+			if (algoritmo == 1) {nuevoValor = menor(valorAReemplazar, valorIzquierda, valorArriba);}
+			if (algoritmo == 2) {nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorArriba);}
 
 			nuevaLista.add(nuevoValor);
 		}

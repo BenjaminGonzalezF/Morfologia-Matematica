@@ -25,12 +25,12 @@ public class Tres extends ElementoEstructuranteBase {
 			int valorDerecha = primera.get(i + 1);
 			int nuevoValor = 0;
 
-			if (algoritmo == 1)
-				;
-			nuevoValor = menor(valorAReemplazar, valorIzquierda, valorDerecha);
-			if (algoritmo == 2)
-				;
-			nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorDerecha);
+			if (algoritmo == 1){
+				nuevoValor = menor(valorAReemplazar, valorIzquierda, valorDerecha);
+			}
+			if (algoritmo == 2){
+				nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorDerecha);
+			}
 
 			nuevaLista.add(nuevoValor);
 		}
