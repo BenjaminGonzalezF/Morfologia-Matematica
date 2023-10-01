@@ -119,30 +119,34 @@ public class Ejecucion {
 
 
     private void iniciarAlgoritmos(){
-
+        //Erosion
         if (algoritmo == 1) {
+            //Secuencial
             if(procesamiento == 1){
                 System.out.println("Iniciando Erosion Secuencial");
                 ErosionSecuencial erosionSecuencial = new ErosionSecuencial(nElementoEstrucurante,datos);
                 erosionSecuencial.iniciar();
             }
+            //Paralelo
             if(procesamiento == 2){
                 System.out.println("Iniciando Erosion Paralela");
                 ErosionParalela erosionParalela = new ErosionParalela(nElementoEstrucurante,datos);
                 erosionParalela.iniciar();
             }
         }
-
+        //Dilatacion
         if (algoritmo == 2) {
+            //Secuencial
             if(procesamiento == 1){
                 System.out.println("Iniciando Dilatacion Secuencial");
-                //DilatacionSecuencial dilatacionSecuencial = new DilatacionSecuencial(nElementoEstrucurante,datos);
-                //dilatacionSecuencial.iniciar();
+                DilatacionSecuencial dilatacionSecuencial = new DilatacionSecuencial(nElementoEstrucurante,datos);
+                dilatacionSecuencial.iniciar();
             }
+            //Paralelo
             if(procesamiento == 2){
                 System.out.println("Iniciando Dilatacion Paralela");
-                //DilatacionParalela dilatacionParalela = new DilatacionParalela(nElementoEstrucurante,datos);
-                //dilatacionParalela.iniciar();
+                DilatacionParalela dilatacionParalela = new DilatacionParalela(nElementoEstrucurante,datos);
+                dilatacionParalela.iniciar();
             }
         }
             

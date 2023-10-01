@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import Datos.Datos;
 
 
-public class cuatro extends ElementoEstructuranteBase {
+public class Cinco extends ElementoEstructuranteBase {
     // Erosion: 1 Dilatacion: 2
-    public cuatro(int algoritmo, Datos datos) {
+    public Cinco(int algoritmo, Datos datos) {
         super(algoritmo, datos);
     }
 
@@ -19,7 +19,9 @@ public class cuatro extends ElementoEstructuranteBase {
      */
 
     @Override
-    public ArrayList<Integer> patron(int filaInicio) {
+    public ArrayList<Integer> patron(int filaInicio ) {
+        filaInicio = filaInicio + 1;
+        
         ArrayList<Integer> filaActual = datos.getLista(filaInicio);
         ArrayList<Integer> filaAnterior = datos.getLista(filaInicio - 1);
         ArrayList<Integer> filaSiguiente = datos.getLista(filaInicio + 1);
