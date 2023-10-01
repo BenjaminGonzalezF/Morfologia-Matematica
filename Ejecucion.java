@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -116,21 +115,6 @@ public class Ejecucion {
         for (ArrayList<Integer> fila : matriz) {
             System.out.println(fila.size());
         }
-    }
-
-    public void testErosionParelela1(){
-        System.out.println("\nDatos Originales");
-        datos.mostrar60Elementos(0, "DatosOriginales");
-        datos.mostrar60Elementos(1, "DatosOriginales");
-        System.out.println();
-
-
-        ErosionParalela eros = new ErosionParalela(1,datos );
-        ErosionSecuencial erosionSecuencial = new ErosionSecuencial(1,datos);
-        
-        System.out.println("\nDatos resultantes");
-        datos.mostrar60Elementos(0, "NuevosDatos");
-        datos.mostrar60Elementos(1, "NuevosDatos");
     }
 
 
