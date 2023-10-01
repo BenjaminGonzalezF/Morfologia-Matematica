@@ -18,6 +18,7 @@ public class Ejecucion {
     int algoritmo = 0 ;
     int nElementoEstrucurante = 0;
     int procesamiento = 0;
+    int tiempo = 0;
     String nombreArchivo = "";
 
     // Lista de arraylist donde cada arraylist contiene los datos de una fila. Esto
@@ -117,6 +118,9 @@ public class Ejecucion {
         }
     }
 
+    public int getTiempo() {
+        return tiempo;
+    }
 
     private void iniciarAlgoritmos(){
         //Erosion
@@ -161,7 +165,8 @@ public class Ejecucion {
         long startTime = System.nanoTime();
         iniciarAlgoritmos();
         long endTime = System.nanoTime();
-        System.out.println("Tiempo de ejecución: " + (endTime - startTime) / 1000000 + " ms");
+        tiempo = (int) ((endTime - startTime) / 1000000);
+        System.out.println("Tiempo de ejecución: " + tiempo+ " ms");
 
     }
 }
