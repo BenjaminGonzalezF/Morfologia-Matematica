@@ -1,14 +1,6 @@
 package Algoritmos;
-
-
 import Datos.*;
 import ElementosEstructurantes.Tipos.*;
-
-import datos.Datos;
-import elementos_estructurantes.ElementoEstructuranteBase;
-import elementos_estructurantes.Uno;
-import elementos_estructurantes.Dos;
-import elementos_estructurantes.Tres;
 
 public class Estructura {
 	protected int nElemento;
@@ -19,13 +11,10 @@ public class Estructura {
 		this.datos = datos;
 	}
 
-	public ElementoEstructuranteBase aplicarElementoEstructurante(int algoritmo, int nElemento) {
-
     public void generarPGM(String algoritmo){
          CrearPGM crearArchivo = new CrearPGM(algoritmo, this.datos);
          crearArchivo.crear();
     }
-
 
     public ElementoEstructuranteBase aplicarElementoEstructurante(int algoritmo, int nElemento){
     
@@ -34,27 +23,22 @@ public class Estructura {
                 Uno uno = new Uno(algoritmo,datos);
                 return uno;
                 // Realiza acciones relacionadas con uno
-/*
             case 2:
-                //Dos dos = new Dos(algoritmo);
+                Dos dos = new Dos(algoritmo,datos);
                 // Realiza acciones relacionadas con dos
-                //return dos;
+                return dos;
             case 3:
-                // Tres tres = new Tres(algoritmo,datos);
+                 Tres tres = new Tres(algoritmo,datos);
                 // Realiza acciones relacionadas con tres
-                //return tres;
-                break;
+                return tres;
             case 4:
-                // Cuatro cuatro = new Cuatro(algoritmo,datos);
+                 Cuatro cuatro = new Cuatro(algoritmo,datos);
                 // Realiza acciones relacionadas con cuatro
-                //return cuatro;
-                break;
+                return cuatro;
             case 5:
-                // Cinco cinco = new Cinco(algoritmo,datos);
+                 Cinco cinco = new Cinco(algoritmo,datos);
                 // Realiza acciones relacionadas con cinco
-                //return cinco;
-                break;
-                */
+                return cinco;               
             default:
                 System.out.println("Opción no válida. Introduce un valor del 1 al 5.");
         }

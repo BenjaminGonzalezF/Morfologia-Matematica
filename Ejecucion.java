@@ -1,5 +1,4 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -118,47 +117,36 @@ public class Ejecucion {
         }
     }
 
-    public void testErosionParelela1(){
-        System.out.println("\nDatos Originales");
-        datos.mostrar60Elementos(0, "DatosOriginales");
-        datos.mostrar60Elementos(1, "DatosOriginales");
-        System.out.println();
-
-
-        ErosionParalela eros = new ErosionParalela(1,datos );
-        ErosionSecuencial erosionSecuencial = new ErosionSecuencial(1,datos);
-        
-        System.out.println("\nDatos resultantes");
-        datos.mostrar60Elementos(0, "NuevosDatos");
-        datos.mostrar60Elementos(1, "NuevosDatos");
-    }
-
 
     private void iniciarAlgoritmos(){
-
+        //Erosion
         if (algoritmo == 1) {
+            //Secuencial
             if(procesamiento == 1){
                 System.out.println("Iniciando Erosion Secuencial");
                 ErosionSecuencial erosionSecuencial = new ErosionSecuencial(nElementoEstrucurante,datos);
                 erosionSecuencial.iniciar();
             }
+            //Paralelo
             if(procesamiento == 2){
                 System.out.println("Iniciando Erosion Paralela");
                 ErosionParalela erosionParalela = new ErosionParalela(nElementoEstrucurante,datos);
                 erosionParalela.iniciar();
             }
         }
-
+        //Dilatacion
         if (algoritmo == 2) {
+            //Secuencial
             if(procesamiento == 1){
                 System.out.println("Iniciando Dilatacion Secuencial");
-                //DilatacionSecuencial dilatacionSecuencial = new DilatacionSecuencial(nElementoEstrucurante,datos);
-                //dilatacionSecuencial.iniciar();
+                DilatacionSecuencial dilatacionSecuencial = new DilatacionSecuencial(nElementoEstrucurante,datos);
+                dilatacionSecuencial.iniciar();
             }
+            //Paralelo
             if(procesamiento == 2){
                 System.out.println("Iniciando Dilatacion Paralela");
-                //DilatacionParalela dilatacionParalela = new DilatacionParalela(nElementoEstrucurante,datos);
-                //dilatacionParalela.iniciar();
+                DilatacionParalela dilatacionParalela = new DilatacionParalela(nElementoEstrucurante,datos);
+                dilatacionParalela.iniciar();
             }
         }
             
