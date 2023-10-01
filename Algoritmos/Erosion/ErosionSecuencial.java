@@ -23,6 +23,4 @@ public class ErosionSecuencial extends Estructura{
         
         this.generarPGM("ErosionSecuencialElemento" + nElemento);
     }
-
-
 }

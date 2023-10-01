@@ -15,7 +15,7 @@ public class DilatacionParalela extends Estructura {
     }
 
     public void iniciar() {
-        elementoEstructurante = aplicarElementoEstructurante(1, nElemento);
+        elementoEstructurante = aplicarElementoEstructurante(2, nElemento);
 
         int nHilos = Runtime.getRuntime().availableProcessors();
         GestionHilos gestionHilos = new GestionHilos(datos);
