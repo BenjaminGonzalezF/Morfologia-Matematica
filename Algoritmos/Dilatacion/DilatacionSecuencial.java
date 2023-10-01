@@ -1,19 +1,20 @@
-package Algoritmos.Erosion;
+package Algoritmos.Dilatacion;
 
 import java.util.ArrayList;
+
 import Algoritmos.Estructura;
 import Datos.Datos;
 import ElementosEstructurantes.Tipos.ElementoEstructuranteBase;
 
-public class ErosionSecuencial extends Estructura{
-    
+public class DilatacionSecuencial extends Estructura {
     ElementoEstructuranteBase elementoEstructurante;
-    public ErosionSecuencial(int nElemento, Datos datos) {
+
+    public DilatacionSecuencial(int nElemento, Datos datos) {
         super(nElemento, datos);
     }
 
     public void iniciar(){
-        elementoEstructurante = this.aplicarElementoEstructurante(1, this.nElemento);
+        elementoEstructurante = this.aplicarElementoEstructurante(2, this.nElemento);
         datos.setNuevosDatos(datos.getDatos());
 
         for (int i = 0; i < datos.getAlto() -1; i++) {
@@ -21,6 +22,6 @@ public class ErosionSecuencial extends Estructura{
             datos.reemplazarNuevaListaN(i, nuevaLista);
         }           
         
-        this.generarPGM("ErosionSecuencialElemento" + nElemento);
+        this.generarPGM("DilatacionSecuencialElemento" + nElemento);
     }
 }

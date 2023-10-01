@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import Algoritmos.Erosion.DilatacionParalela;
-import Algoritmos.Erosion.DilatacionSecuencial;
+import Algoritmos.Dilatacion.DilatacionParalela;
+import Algoritmos.Dilatacion.DilatacionSecuencial;
 import Algoritmos.Erosion.ErosionParalela;
 import Algoritmos.Erosion.ErosionSecuencial;
 import Datos.Datos;

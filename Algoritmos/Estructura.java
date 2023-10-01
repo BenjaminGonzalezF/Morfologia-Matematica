@@ -4,16 +4,22 @@ package Algoritmos;
 import Datos.*;
 import ElementosEstructurantes.Tipos.*;
 
-//Clase padre de las implementaciones de los algoritmos
+import datos.Datos;
+import elementos_estructurantes.ElementoEstructuranteBase;
+import elementos_estructurantes.Uno;
+import elementos_estructurantes.Dos;
+import elementos_estructurantes.Tres;
+
 public class Estructura {
-    protected int nElemento;
-    protected Datos datos;
+	protected int nElemento;
+	protected Datos datos;
 
-    public Estructura (int nElemento, Datos datos){
-        this.nElemento = nElemento;
-        this.datos = datos;
-    }
+	public Estructura(int nElemento, Datos datos) {
+		this.nElemento = nElemento;
+		this.datos = datos;
+	}
 
+	public ElementoEstructuranteBase aplicarElementoEstructurante(int algoritmo, int nElemento) {
 
     public void generarPGM(String algoritmo){
          CrearPGM crearArchivo = new CrearPGM(algoritmo, this.datos);
