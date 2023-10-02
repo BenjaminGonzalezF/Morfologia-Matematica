@@ -15,7 +15,7 @@ public class Tres extends ElementoEstructuranteBase {
 		ArrayList<Integer> primera = datos.getLista(filainicio);
 		ArrayList<Integer> segunda = datos.getLista(filainicio + 1);
 		ArrayList<Integer> nuevaLista = new ArrayList<Integer>();
-		nuevaLista.add(primera.get(0));
+        nuevaLista = primera;
 
 		int maximoLargo = listaMenor(primera, segunda).size();
 
@@ -32,7 +32,7 @@ public class Tres extends ElementoEstructuranteBase {
 				nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorDerecha);
 			}
 
-			nuevaLista.add(nuevoValor);
+            nuevaLista.set(i,nuevoValor);
 		}
 		return nuevaLista;
 	}

@@ -32,7 +32,7 @@ public class CrearPGM {
             writer.newLine();
 
             // Recorrer los elementos de la lista y escribirlos en el archivo
-            for (ArrayList<Integer> lista : datos.getDatos()) {
+            for (ArrayList<Integer> lista : datos.getNuevosDatos()) {
                 for (Integer valor : lista) {
                     writer.write(String.valueOf(valor));
                     writer.write(" ");

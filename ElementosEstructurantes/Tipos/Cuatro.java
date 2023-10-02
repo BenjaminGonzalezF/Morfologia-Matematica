@@ -14,7 +14,7 @@ public class Cuatro extends ElementoEstructuranteBase {
         ArrayList<Integer> primera = datos.getLista(filainicio);
         ArrayList<Integer> segunda = datos.getLista(filainicio + 1);
         ArrayList<Integer> nuevaLista = new ArrayList<Integer>();
-        nuevaLista.add(primera.get(0));
+        nuevaLista = primera;
 
         int maximoLargo = listaMenor(primera, segunda).size();
 
@@ -29,7 +29,7 @@ public class Cuatro extends ElementoEstructuranteBase {
             if (algoritmo == 2){
                 nuevoValor = mayor(valorAReemplazar, valorAbajo, 0);
             }
-            nuevaLista.add(nuevoValor);
+            nuevaLista.set(i,nuevoValor);
         }
         return nuevaLista;
     }

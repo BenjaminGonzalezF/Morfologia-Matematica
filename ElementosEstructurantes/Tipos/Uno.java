@@ -24,12 +24,11 @@ public class Uno extends ElementoEstructuranteBase {
         ArrayList<Integer> primera = datos.getLista(filainicio);
         ArrayList<Integer> segunda = datos.getLista(filainicio + 1);
         ArrayList<Integer> nuevaLista = new ArrayList<Integer>();
-        nuevaLista.add(primera.get(0));
 
-
+        nuevaLista = primera;
         int maximoLargo = listaMenor(primera, segunda).size();
 
-        for (int i = 1; i < maximoLargo - 1; i++) {
+        for (int i = 1; i < maximoLargo; i++) {
             int valorAReemplazar = primera.get(i);
             int valorIzquierda = primera.get(i - 1);
             int valorAbajo = segunda.get(i);
@@ -45,8 +44,7 @@ public class Uno extends ElementoEstructuranteBase {
             if(algoritmo == 2 ){
                 nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorAbajo);
             }
-
-            nuevaLista.add(nuevoValor);
+            nuevaLista.set(i,nuevoValor);
         }
 
         return nuevaLista;

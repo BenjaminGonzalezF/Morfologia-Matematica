@@ -14,7 +14,7 @@ public class Dos extends ElementoEstructuranteBase {
 		ArrayList<Integer> primera = datos.getLista(filainicio);
 		ArrayList<Integer> segunda = datos.getLista(filainicio + 1);
 		ArrayList<Integer> nuevaLista = new ArrayList<Integer>();
-		nuevaLista.add(primera.get(0));
+        nuevaLista = primera;
 
 		int maximoLargo = listaMenor(primera, segunda).size();
 
@@ -34,7 +34,7 @@ public class Dos extends ElementoEstructuranteBase {
 			if (algoritmo == 1) {nuevoValor = menor(valorAReemplazar, valorIzquierda, valorArriba);}
 			if (algoritmo == 2) {nuevoValor = mayor(valorAReemplazar, valorIzquierda, valorArriba);}
 
-			nuevaLista.add(nuevoValor);
+            nuevaLista.set(i,nuevoValor);
 		}
 
 		return nuevaLista;

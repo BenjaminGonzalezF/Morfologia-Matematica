@@ -28,7 +28,8 @@ public class Cinco extends ElementoEstructuranteBase {
         ArrayList<Integer> filaAnterior = datos.getLista(filaInicio - 1);
         ArrayList<Integer> filaSiguiente = datos.getLista(filaInicio + 1);
         ArrayList<Integer> nuevaFila = new ArrayList<>();
-    
+        nuevaFila = filaActual;
+
         int maximoLargo = Math.min(filaActual.size(), filaSiguiente.size());
     
         for (int i = 1; i < maximoLargo - 1; i++) {
@@ -48,7 +49,7 @@ public class Cinco extends ElementoEstructuranteBase {
                 nuevoValor = mayor(valorCentral, valorIzquierda, valorDerecha, valorArriba, valorAbajo);
             }
     
-            nuevaFila.add(nuevoValor);
+            nuevaFila.set(i,nuevoValor);
         }
     
         return nuevaFila;
