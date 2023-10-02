@@ -21,7 +21,9 @@ public class Cinco extends ElementoEstructuranteBase {
     @Override
     public ArrayList<Integer> patron(int filaInicio ) {
         filaInicio = filaInicio + 1;
-        
+        if (filaInicio >= datos.getAlto() - 1) {
+            filaInicio = filaInicio - 2;
+        }
         ArrayList<Integer> filaActual = datos.getLista(filaInicio);
         ArrayList<Integer> filaAnterior = datos.getLista(filaInicio - 1);
         ArrayList<Integer> filaSiguiente = datos.getLista(filaInicio + 1);
